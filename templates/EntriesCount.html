@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/unique.css">
+    <title>EntriesCount</title>
+</head>
+<body class="pag-background">
+    <div class = "banner">
+
+    </div>
+    <div class = "header">
+        Here is a list of the entries for each available source:
+    </div>
+    <div class = "content">
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Count</th>
+            </tr>
+            {% for i,j in d.dataframe.items() %}
+            <tr>
+                <td>{{i}}</td>
+                <td>{{j}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class = 'button-backhome'>
+        <a href="/" >Back home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/unique.css">
+    <title>ListTypes</title>
+</head>
+<body class="pag-background">
+    <div class = "banner">
+
+    </div>
+    <div class = "header">
+        Here is a list of the different feature types in the dataset:
+    </div>
+    <div class = "content">
+        <table>
+            <tr>
+                <th>Feature type</th>
+            </tr>
+            {% for i in d.dataframe[0] %}
+            <tr>
+                <td>{{i}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class = 'button-backhome'>
+        <a href="/" >Back home</a>
+    </div>
+</body>
+</html>

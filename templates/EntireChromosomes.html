@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/unique.css">
+    <title>EntireChromosomes</title>
+</head>
+<body class="pag-background">
+    <div class = "banner">
+
+    </div>
+    <div class = "header">
+        Here is data about entire chromosomes in the genome assembly:
+    </div>
+    <div class = "content">
+        <table class="fullrow">
+            <tr>
+            {%for z in desc.keys()%}
+            <th>{{z}}</th>
+            {%endfor%}
+            </tr>
+            {% for i in range(h) %}
+            <tr>
+                {% for j in d.dataframe.iloc[i] %}
+                <td>
+                    {{j}}
+                </td>
+                {%endfor%}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class = 'button-backhome'>
+        <a href="/" >Back home</a>
+    </div>
+</body>
+</html>

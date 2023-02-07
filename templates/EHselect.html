@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/unique.css">
+    <title>EHselect</title>
+</head>
+<body class="pag-background">
+    <div class="banner">
+
+    </div>
+    <div class="header">
+        Retrieve database information only from sources Ensembl, Havana and EnsemblHavana:
+    </div>
+    <div class="content">
+        <table class="fullrow">
+            <tr>
+                {%for z in desc.keys()%}
+                <th>{{z}}</th>
+                {%endfor%}
+            </tr>
+            {% set h = d.dataframe['Type']|length %}
+            {% for i in range(1000) %}
+            <tr>
+                {% for j in range(9) %}
+                <td>{{d.dataframe.iloc[i,j]}}</td>
+                {%endfor%}
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+    <div class="button-backhome">
+        <a href="/" >Back home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/unique.css">
+    <title>UnassembledSeq</title>
+</head>
+<body class="pag-background">
+    <div class = "banner">
+
+    </div>
+    <div class = "header">
+        Here is data about what part of the genome assembly is unassembled:
+    </div>
+    <div class = "content">
+        <table>
+            <tr>
+                <td>{{d.dataframe.iloc[0,0]}}</td>
+                <td>{{d.dataframe.iloc[0,1]}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class = 'button-backhome'>
+        <a href="/" >Back home</a>
+    </div>
+</body>
+</html>

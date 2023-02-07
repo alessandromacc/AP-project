@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/unique.css">
+    <title>Documentation</title>
+</head>
+<body class="pag-background">
+    <div class="banner"></div>
+    <div class="header">Read some more informations about our project:</div>
+    <div class="content">
+        The web app we developed offers the customer some insight into the latest human genome annotation, providing selected data as online tables the user can consult.
+        Software design was carried out with a Class Diagram written in the UML standards:
+        <img src="/static/Class diagram.jpg" alt="" style="width: 100%;">
+        <br>
+        <p>
+            The Dataset class is the main object in the software. It contains the dataframe private attribute, which should be a Pandas DataFrame provided as input by the use, and the queried private attribute, a boolean used by other parts of the software to check the correct usage of the operations by the user.
+            The Dataset class also has two methods:
+            <ul>
+                <li>execute(OperationRegistry, operationName), which calls the execution of the operation requested by the user, only if present in the provided registry and marked as active. Return type is in most cases a Dataset object, but unless differently specified in each operation’s documentation.</li>
+                <li>__query(OperationRegistry, operationName): a private method called internally by execute, responsible for checking the current status of the required operation.</li>
+            </ul>
+        </p>
+        <br>
+        <p>
+            The Operation class is an abstract class all other operation calluses are derived from. Its attributes are:
+            <ul>
+                <li>status: boolean meaning wether the operation is currently executable or not, defaulted to False, but switched to True upon instancing by the decorator switch, applied to the initiator;</li>
+                <li>name: string associated with each instance of any derived class, set to None in the abstract interface, but for each derived class it was set to the class name itself in string form;</li>
+            </ul>
+            The only method of the class is the abstract method operation, which is overridden in each subclass we created, and is the method called by the execute method of a Dataset to perform an action on a dataframe. In writing each operation, care was taken to make sure the Dataset attribute queried is set to True, since it is only so if the user called the operation through the execute method of a Dataset, and not in any other way.
+        </p>
+        <br>
+        <p>
+            Specific operation classes, all defined as subclasses of the abstract class Operation:
+            <ul>
+                <li>BasicInfo is a subclass of Operation: <br>
+                    operation(Dataset): returns a new Dataset object containing information about the content of a .gff3 file and how it is referred to throughout the application.</li>
+                <br>
+                <li>FeaturesCount: <br>
+                    operation(Dataset): returns a new Dataset object containing informations about the number of features provided by the same source in the annotation. In this case Dataset.dataframe is a Pandas.Series object.</li>
+                <br>
+                <li>ListID: <br>
+                    operation(Dataset): returns a Dataset containing the list of all the scaffold or chromosome IDs present in the annotation.</li>
+                <br>
+                <li>ListTypes: <br>
+                    operation(Dataset): returns a Dataset object containing a list of the types of features present in the annotation.</li>
+                <br>
+                <li>EntriesCount: <br>
+                    operation(Dataset): returns a Dataset object containing the count of all entries in the annotation corresponding to a certain feature type. In this case Dataset.dataframe is a Pandas.Series object.</li>
+                <br>
+                <li>EntireChromosomes: <br>
+                    operation(Dataset): returns a Dataset object containing only data about the entire chromosomes annotation.</li>
+                <br>
+                <li>UnassembledSeq: <br>
+                    operation(Dataset): returns a Dataset object containing 1 row and 2 columns: the first column is the explaining label for the second column, which holds the percent value of the genome parts not assembled into chromosomes, but only available as supercontigs.</li>
+                <br>
+                <li>EHselect: <br>
+                    operation(Dataset): returns a Dataset object containing only entries from source ensembl, havana and ensembl_havana.</li>
+                <br>
+                <li>EHentries: <br>
+                    operation(Dataset): returns a Dataset object containing the count of all the entries for each type of feature, but only from source ensembl, havana and ensembl_havana. In this case Dataset.dataframe is a Pandas.Series object.</li>
+                <br>
+                <li>EHGeneNames: <br>
+                    operation(Dataset): returns a Dataset object containing the unique gene names from the genome annotation, only from source ensembl, havana and ensembl_havana.</li>
+            </ul>
+        </p>
+        <br>
+        <p>
+            For operations registry we use the abstract class OperationRegistry. It takes as starred arguments any operation the user sees fit for their work.
+            Contains two attributes, both made properties: registry and status_registry. It is always queried by a Dataset before allowing any operation to be executed, which checks on the status of a certain operation and if it is an active operation retrieves the object and accesses its operation method.
+            <br>
+            The Gff3 class has the static method description() which returns a dictionary containing 9 keys (and their respective values), describing the content of a gff3 file.
+            <br>
+            The DatasetReader is the general abstract interface for file readers, it's useful for developing specific readers as subclasses, as the Gff3Reader we devised for gff3 files. Accepts a filepath as argument for initiation, but it's not strictly required.
+            <br>
+            The Gff3Reader class is the non abstract subclass of the abstract class DatasetReader. We specifically designed it to read gff3 files
+            such as the one we are using as data. It has a static method read, which only accepts a gff3 file as an input and relies on a Pandas
+            read_csv() to read a tabulated file and store data in a Dataset object, which is returned to the user.
+            <br>
+            The only parameter of the Gff3Reader.read() method is the filepath, while other parameters required by the read_csv() function are set by default and cannot be modified by the user:
+            <ul>
+                <li>path: a string indicating the path of the gff3 file to read</li>
+            </ul>
+        </p>
+    </div>
+    <div class = 'button-backhome'>
+        <a href="/" >Back home</a>
+    </div>
+</body>
+</html>
