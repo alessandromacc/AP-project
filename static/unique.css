@@ -101,6 +101,14 @@ button span{
     width:700px;
     text-align:center;
 }
+.docu-header{
+    
+    font-size: 2rem;
+    background-color: black;
+    color:white;
+    width:100%;
+    
+}
 
 .pag-background{
     background-image:linear-gradient(to bottom right, black, gray);
@@ -123,6 +131,17 @@ button span{
     font-size: 2vh;
     outline: 3px;
     padding: 3vh;
+}
+
+.docu-content{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    outline: 3px;
+    padding: 3vh;
+}
+p,li{
+    margin: auto;
+    width: 90%;
 }
 
 .home{
