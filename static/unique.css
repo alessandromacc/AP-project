@@ -92,22 +92,20 @@ button span{
     border:1px solid red;
 }
 .header{
-    position: absolute;
-    left:30px;
-    top:30px;
     font-size: 4vh;
-    background-color: black;
     color:white;
-    width:700px;
-    text-align:center;
+    width: 100%;
+    padding: 30px;
 }
 .docu-header{
-    
     font-size: 2rem;
-    background-color: black;
+    background-image:linear-gradient(to bottom right, black, gray);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
     color:white;
     width:100%;
-    
+    padding: 30px;
 }
 
 .pag-background{
@@ -116,14 +114,8 @@ button span{
     background-position: center;
     background-repeat: no-repeat;
 }
-
-.header-home{
-    width: 100%;
-    font-size: 4vh;
-    background-color: plum;
-    text-align: center;
-    vertical-align: middle;
-    height: 6vh;
+html, body{
+    min-height: 100%;
 }
 
 .content{
@@ -144,19 +136,6 @@ p,li{
     width: 90%;
 }
 
-.home{
-    font-size: 3vh;
-    padding: 7px 3rem 11px 3rem;
-    vertical-align: middle;
-    height: min-content;
-}
-
-.home:hover{
-    background-color: lightpink;
-    transition: linear;
-    transition-duration: 100ms;
-}
-
 .button-backhome{
     color:white;
     background-color: rgb(230, 68, 68);
@@ -171,6 +150,7 @@ p,li{
     top: 100%;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 20px;
 
 }
 
@@ -186,9 +166,39 @@ p,li{
     opacity: 0.5;
 }
 
+.button-backhome-up{
+    color:white;
+    background-color: rgb(230, 68, 68);
+    width: 150px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight:600;
+    text-align: center;
+    border-radius: 10px;
+    transition: background-color 0.33s, color 0.33s;
+    font-size:3vh;
+    position: absolute;
+    right: 50px;
+    top: 20px;
+
+}
+
+.button-backhome-up:hover{
+    background-color:rgba(230, 68, 68, 0.5) ;
+    color:white;
+    opacity: 0.7;
+}
+
+.button-backhome-up:hover{
+    background-color:rgba(245, 40, 40, 0.603) ;
+    color:white;
+    opacity: 0.5;
+}
+
 table{
     min-width: 30%;
-    
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid;
     border-collapse: collapse;
 }
@@ -224,4 +234,37 @@ tr:hover{
     background-color: lightblue;
     transition: linear;
     transition-duration: 75ms;
+}
+
+.nav-list{
+    display:flex;
+    list-style:none;
+    gap:1rem;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.nav-list li{
+    flex-grow:1;
+    cursor:pointer;
+    font-size:30px;
+    font-weight: 600;
+    text-align: center;
+    background-image: linear-gradient(to top left, gray, black);
+    border: 2px solid white;
+    padding-top:10px;
+    padding-bottom:10px;
+    transition: color 0.33s;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.nav-list li:hover{
+    color: rgba(255, 228, 196, 0.5);
+    opacity: 0.5;
+}
+
+.nav-list li:active{
+    color: rgba(31, 204, 204, 0.76)
 }

@@ -8,14 +8,16 @@
     <title>ListID</title>
 </head>
 <body class="pag-background">
-    <div class="banner"></div>
+    <div class = 'button-backhome-up'>
+        <a href="/" >Back home</a>
+    </div>
     <div class="header">
         List of the unique IDs found in the genome annotation:
     </div>
     <div class="content">
         <table>
             <tr>
-                <th>Unique IDs</th>
+                <th>Unique IDs of Chromosomes or supercontigs</th>
             </tr>
             {% for i in types.dataframe[0] %}
             <tr>

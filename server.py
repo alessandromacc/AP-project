@@ -75,6 +75,11 @@ def EH_select(reg=reg, df=df):
     d = df.execute(reg, 'EHselect')
     return render_template('EHselect.html', d=d, desc=Gff3.description())
 
+@myapp.route('/EHfullselect')
+def EH_fullselect(reg=reg, df=df):
+    d = df.execute(reg, 'EHselect')
+    return render_template('EHfullselect.html', d=d, desc=Gff3.description())
+
 @myapp.route('/EHentries')
 def EH_entries(reg=reg, df=df):
     d = df.execute(reg, 'EHentries')

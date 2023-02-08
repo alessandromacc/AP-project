@@ -1,4 +1,1 @@
-ciao, written by ale
-also this
-ciao
-how are ya?
+Run server.py to start the software. Make sure to set correctly the path of the gff3 file, or to have it in the same directory as the server.py file.
