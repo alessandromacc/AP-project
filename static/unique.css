@@ -89,9 +89,6 @@ a:visited{
     opacity: 1;
 }
 
-button span{
-    border:1px solid red;
-}
 .header{
     font-size: 4vh;
     color:white;
@@ -153,12 +150,6 @@ p,li{
     margin-left: auto;
     margin-bottom: 20px;
 
-}
-
-.button-backhome:hover{
-    background-color:rgba(230, 68, 68, 0.5) ;
-    color:white;
-    opacity: 0.7;
 }
 
 .button-backhome:hover{
@@ -244,7 +235,6 @@ tr:hover{
     flex-wrap: nowrap;
     justify-content: space-around;
     flex-direction: row;
-    /*align-items: center;*/
 }
 
 .nav-list li{

@@ -90,5 +90,5 @@ def EH_gene_names(reg=reg, df=df):
     d = df.execute(reg, 'EHGeneNames')
     return render_template('EHGeneNames.html', d=d)
 
-
-myapp.run()
+if __name__=='__main__':
+    myapp.run()
