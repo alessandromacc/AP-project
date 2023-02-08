@@ -12,7 +12,7 @@ reg = OperationRegistry(BasicInfo(), FeaturesCount(), ListID(), ListTypes(), Ent
 
 '''Use the Gff3Reader class to read a gff3 file and store it into a Dataset object,
 pass as argument the path to the gff3 file.'''
-df = Gff3Reader.read('/Users/Alessandro/Desktop/Uni/2° year/Advanced Programming/group pj-local/Homo_sapiens.GRCh38.85.gff3')
+df = Gff3Reader.read('Homo_sapiens.GRCh38.85.gff3')
 
 @myapp.route('/')
 def index():
