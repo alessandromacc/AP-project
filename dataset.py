@@ -106,7 +106,7 @@ class UnassembledSeq(Operation):
         '''calculating the fraction of unassembled sequences from source GRCh38'''
         if d.queried == True:
             selected = d.dataframe.loc[d.dataframe['Source'].isin(['GRCh38'])].value_counts('Type')
-            return Dataset(pd.DataFrame([['Fraction of unassembled sequences',f'{100*selected.loc["supercontig"]/selected.sum()} %']]))
+            return Dataset(pd.DataFrame([['Fraction of unassembled sequences',f'{round(100*selected.loc["supercontig"]/selected.sum(), 2)} %']]))
 
 class EHselect(Operation):
     def __init__(self, status: bool = False, name: str = 'EHselect'):

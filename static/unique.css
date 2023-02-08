@@ -74,6 +74,7 @@ a:visited{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    cursor: pointer;
 }
 
 .button-op:hover {
@@ -243,6 +244,7 @@ tr:hover{
     flex-wrap: nowrap;
     justify-content: space-around;
     flex-direction: row;
+    /*align-items: center;*/
 }
 
 .nav-list li{
@@ -280,4 +282,10 @@ tr:hover{
     color: white;
     font-weight: 300;
     text-align: center;
+    padding-top: 5px;
+    border: 2px solid lightgray;
+    background-image: linear-gradient(to bottom right, rgba(203, 174, 147, 0.5), rgb(212, 156, 115,0.5));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
